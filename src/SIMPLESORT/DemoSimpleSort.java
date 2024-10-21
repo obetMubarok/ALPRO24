@@ -31,24 +31,41 @@ class SimpleSort{
         }
         }
     }
+    public void selectionSort(){
+        int start = 0;
+        int max;
+        for(int i=size-1; i>0; i--){
+            max = i;
+            for(int j=i; j>=0; j--){
+                if(array[j] > array[max])
+                    max = j;
+            }
+            swap(i, max);
+            System.out.print((++start)+" : ");
+            display();
+            System.out.println("");
+        }
+        
+    }
+    
     
 }
 public class DemoSimpleSort {
     public static void main(String[] args) {
         SimpleSort ss = new SimpleSort(10);
         ss.insert(20);//0
-        ss.insert(10);//1
+        ss.insert(100);//1
         ss.insert(50);
         ss.insert(40);
         ss.insert(30);
         ss.insert(90);
-        ss.insert(100);
+        ss.insert(10);
         ss.insert(60);
         ss.insert(80);
         ss.insert(70);//9
         
         
-        ss.bubbleSort();
+        ss.selectionSort();
         ss.display();
         
         
