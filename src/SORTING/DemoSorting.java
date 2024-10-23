@@ -1,4 +1,4 @@
-package SIMPLESORT;
+package SORTING;
 class SimpleSort{
     int[] array;
     int size;
@@ -47,10 +47,42 @@ class SimpleSort{
         }
         
     }
-    
+    public void insertionSort(){
+        int temp, i, j;
+        for(i=1; i<nItem; i++){
+            temp = array[i];
+            for(j=i; j>0; j--){
+                if(array[j-1]>temp){
+                    array[j] = array[j-1];//geser ke kanan
+                }else{
+                    break;
+                }
+            }
+            array[j] = temp;
+        }
+    }
+    public void quickSort(int low, int hight){
+        if(low < hight){
+        int pi = partition(low, hight);
+        quickSort(low, pi-1);
+        quickSort(pi+1, hight);
+        }
+    }
+    public int partition(int low, int hight){
+        int pivot = array[hight];
+        int swpIndex = low;
+        for(int i=low; i<hight; i++){
+            if(array[i] < pivot){
+                swap(swpIndex, i);
+                swpIndex++;
+            }
+        }
+        swap(swpIndex,hight);
+        return swpIndex;
+    }
     
 }
-public class DemoSimpleSort {
+public class DemoSorting {
     public static void main(String[] args) {
         SimpleSort ss = new SimpleSort(10);
         ss.insert(20);//0
@@ -64,8 +96,7 @@ public class DemoSimpleSort {
         ss.insert(80);
         ss.insert(70);//9
         
-        
-        ss.selectionSort();
+        ss.quickSort(0, 9);
         ss.display();
         
         
