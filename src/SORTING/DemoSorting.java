@@ -32,18 +32,16 @@ class SimpleSort{
         }
     }
     public void selectionSort(){
-        int start = 0;
-        int max;
-        for(int i=size-1; i>0; i--){
-            max = i;
-            for(int j=i; j>=0; j--){
-                if(array[j] > array[max])
-                    max = j;
+        int min;
+        for(int i=0; i<nItem-1; i++){
+            min = i;
+            for(int j=i+1; j<nItem; j++){
+                if(array[j] < array[min])
+                    min = j;
             }
-            swap(i, max);
-            System.out.print((++start)+" : ");
-            display();
-            System.out.println("");
+            swap(i, min);
+            
+            
         }
         
     }
@@ -96,7 +94,10 @@ public class DemoSorting {
         ss.insert(80);
         ss.insert(70);//9
         
-        ss.quickSort(0, 9);
+        ss.bubbleSort();
+        //ss.selectionSort();
+        //ss.insertionSort();
+        //ss.quickSort(0, ss.size-1);
         ss.display();
         
         
