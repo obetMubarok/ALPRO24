@@ -28,7 +28,7 @@ class Rekursi {
         if(n==1){
             return 1;
         }else{
-            return deret(n-1)+1;
+            return deret(n-1)+2;
         }
     }
     public int pangkat(int a, int b){
@@ -38,12 +38,25 @@ class Rekursi {
             return pangkat(a, b-1)*a;
         }
     }
+    public int deretGanjil(int key){
+        if(key == 1)
+            return 1;
+        else
+            return deretGanjil(key-1)+2;
+    }
+    public int deretGenap(int key){
+        if(key == 1)
+            return 2;
+        else
+            return deretGenap(key-1)+2;
+    }
 }
 
 public class DemoDasar {
 
     public static void main(String[] args) {
         Rekursi r = new Rekursi();
-        System.out.println(r.pangkat(2,3));
+        
+        System.out.println(r.deretGanjil(3));
     }
 }
